@@ -1,0 +1,184 @@
+header.banner {
+	position:relative;
+}
+.navbar {
+	margin-bottom:0;
+	padding:10px 0 10px 0;
+	height:170px;
+	
+	@include phone {
+		height: 155px;
+		
+	}
+
+	@include exSmall {
+		padding:0;
+	}
+	
+	@include tablet {
+		padding:30px 0 10px 0;
+		height: 155px;
+	}
+
+}
+.navbar-default {
+	background-color:$black-op4;
+	border:none;
+	border-bottom:$light-border;
+}
+
+.navbar-header {
+	margin-top:70px;
+    float: left;
+    text-align: center;
+    width: 100%;
+
+    @include phone {
+    	margin-top: 70px;
+        padding: 0 0 0 20px;
+    }
+    @include tablet {
+    	margin-top: 50px;
+    }
+
+}
+.navbar-default .navbar-brand {
+	padding:0;
+	margin:0;
+    float:none;
+    font-family: 'Russo One', sans-serif;
+    font-size:72px;
+    color:$white;
+    font-weight:700;
+    transition: 0.2s;
+    text-shadow: -1px 1px 1px #111, -2px 2px 2px $brand-primary;
+	
+    @include phone {
+    	font-size: 36px;
+    }
+
+	@include exSmall {
+    	font-size: 26px;
+    }
+
+    @include tablet {
+    	font-size: 48px;
+    }
+
+    &:hover {
+    	color:$brand-hover;
+    	text-shadow: -1px 1px 1px #111, -2px 2px 3px $brand-hover;
+    }
+    &:active {
+    	color:$brand-hover;
+    	text-shadow: -1px 1px 1px #111, -2px 2px 3px $brand-hover;
+    }
+    &:focus {
+    	color:$brand-hover;
+    	text-shadow: -1px 1px 1px #111, -2px 2px 3px $brand-hover;
+    }
+
+}
+.navbar-nav {
+	margin:20px -15px 40px;
+
+	li {
+		clear:both;
+		margin-left:-5px;
+
+		@include phone {
+			margin-left:-5px;
+		}
+	}
+}
+.nav>li>a:focus, .nav>li>a:hover {
+	background-color:$white;
+}
+@include tabletMin {
+	.navbar>.container .navbar-brand, .navbar>.container-fluid .navbar-brand {
+		margin-left:0;
+	}
+}
+.site-desc {
+	margin-top:5px;
+	line-height:1;
+	font-family: 'Francois One', sans-serif;
+	font-weight:100;
+	text-shadow: -1px 1px 1px #111;
+
+	@include phone {
+		font-size:16px;
+		margin-top: 0;
+	}
+	@include tablet {
+		font-size:18px;
+		margin-top:0;
+	}
+	@include exSmall {
+		font-size:13px;
+	}
+}
+.logo {
+    position:absolute;
+    left:0;
+    right:0;
+    margin-left:auto;
+    margin-right:auto;
+    z-index:-1;
+    top:30px;
+
+    @include phone {
+    	min-width: 100px;
+    	top:44px;
+    }
+    @include tablet {
+    	top:35px;
+    }
+}
+.head-logo {
+	margin-top:-25px;
+	width:80px;
+
+	@include phone {
+		display:none;
+	}
+
+	@include tablet {
+		margin-top: -15px;
+		width:65px;
+	}
+}
+
+.navbar-nav .open .dropdown-menu {
+	position:static;
+	float:none;
+	width:auto;
+	margin-top:0;
+	background-color:transparent;
+	border:0;
+	-webkit-box-shadow:none;
+	box-shadow:none;
+	font-size:16px;
+	
+
+	li a {
+		color:$brand-primary;
+	}
+
+}
+
+.dropdown-menu>.active>a, .dropdown-menu>.active>a:focus, .dropdown-menu>.active>a {
+	background-color:transparent;
+	color:$brand-hover !important;
+}
+.ad-wrapper {
+	margin:20px 0 0 0;
+}
+
+
+
+
+
+
+
+

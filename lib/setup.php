@@ -55,22 +55,87 @@ add_action('after_setup_theme', __NAMESPACE__ . '\\setup');
  */
 function widgets_init() {
   register_sidebar([
-    'name'          => __('Primary', 'sage'),
-    'id'            => 'sidebar-primary',
+    'name'          => __('Main Menu (Modal)', 'tstr'),
+    'description'   => __( 'This is the main menu widget area.', 'tstr' ),
+    'id'            => 'sidebar-main-menu',
+    'before_widget' => '<section class="widget %1$s %2$s">',
+    'after_widget'  => '</section>',
+    'before_title'  => '<h3>',
+    'after_title'   => '</h3>'
+  ]);
+  register_sidebar([
+    'name'          => __('Comic Corner (Modal)', 'tstr'),
+    'description'   => __( 'This is the Comic Corner menu', 'tstr' ),
+    'id'            => 'sidebar-comic-corner',
+    'before_widget' => '<section class="widget %1$s %2$s">',
+    'after_widget'  => '</section>',
+    'before_title'  => '<h3>',
+    'after_title'   => '</h3>'
+  ]);
+  register_sidebar([
+    'name'          => __('Footer Top Left', 'tstr'),
+    'description'   => __( 'Footer Top Left widget area', 'tstr' ),
+    'id'            => 'sidebar-footer-top-left',
+    'before_widget' => '<section class="widget %1$s %2$s">',
+    'after_widget'  => '</section>',
+    'before_title'  => '<h3>',
+    'after_title'   => '</h3>'
+  ]);
+  register_sidebar([
+    'name'          => __('Footer Top Right', 'tstr'),
+    'description'   => __( 'Footer Top Right widget area', 'tstr' ),
+    'id'            => 'sidebar-footer-top-right',
+    'before_widget' => '<section class="widget %1$s %2$s">',
+    'after_widget'  => '</section>',
+    'before_title'  => '<h3>',
+    'after_title'   => '</h3>'
+  ]);
+  register_sidebar([
+    'name'          => __('Footer One', 'tstr'),
+    'description'   => __( 'Footer One widget area', 'tstr' ),
+    'id'            => 'sidebar-footer-one',
+    'before_widget' => '<section class="widget %1$s %2$s">',
+    'after_widget'  => '</section>',
+    'before_title'  => '<h3>',
+    'after_title'   => '</h3>'
+  ]);
+  register_sidebar([
+    'name'          => __('Footer Two', 'tstr'),
+    'description'   => __( 'Footer Two widget area', 'tstr' ),
+    'id'            => 'sidebar-footer-two',
+    'before_widget' => '<section class="widget %1$s %2$s">',
+    'after_widget'  => '</section>',
+    'before_title'  => '<h3>',
+    'after_title'   => '</h3>'
+  ]);
+  register_sidebar([
+    'name'          => __('Footer Three', 'tstr'),
+    'description'   => __( 'Footer Three widget area', 'tstr' ),
+    'id'            => 'sidebar-footer-three',
+    'before_widget' => '<section class="widget %1$s %2$s">',
+    'after_widget'  => '</section>',
+    'before_title'  => '<h3>',
+    'after_title'   => '</h3>'
+  ]);
+  register_sidebar([
+    'name'          => __('Archive Page Left', 'tstr'),
+    'description'   => __( 'Archive Page Left widget area', 'tstr' ),
+    'id'            => 'sidebar-archive-page-left',
+    'before_widget' => '<section class="widget %1$s %2$s">',
+    'after_widget'  => '</section>',
+    'before_title'  => '<h3>',
+    'after_title'   => '</h3>'
+  ]);
+  register_sidebar([
+    'name'          => __('Archive Page Right', 'tstr'),
+    'description'   => __( 'Archive Page Right widget area', 'tstr' ),
+    'id'            => 'sidebar-archive-page-right',
     'before_widget' => '<section class="widget %1$s %2$s">',
     'after_widget'  => '</section>',
     'before_title'  => '<h3>',
     'after_title'   => '</h3>'
   ]);
 
-  register_sidebar([
-    'name'          => __('Footer', 'sage'),
-    'id'            => 'sidebar-footer',
-    'before_widget' => '<section class="widget %1$s %2$s">',
-    'after_widget'  => '</section>',
-    'before_title'  => '<h3>',
-    'after_title'   => '</h3>'
-  ]);
 }
 add_action('widgets_init', __NAMESPACE__ . '\\widgets_init');
 
@@ -84,7 +149,6 @@ function display_sidebar() {
     // The sidebar will NOT be displayed if ANY of the following return true.
     // @link https://codex.wordpress.org/Conditional_Tags
     is_404(),
-    is_front_page(),
     is_page_template('template-custom.php'),
   ]);
 
@@ -102,5 +166,8 @@ function assets() {
   }
 
   wp_enqueue_script('sage/js', Assets\asset_path('scripts/main.js'), ['jquery'], null, true);
+
+  wp_enqueue_style('tstr_options_css', get_template_directory_uri() . '/assets/styles/tstr-theme-options.php' );
+  wp_enqueue_style('invert_options', get_template_directory_uri() . '/assets/styles/invert-options.php' );
 }
 add_action('wp_enqueue_scripts', __NAMESPACE__ . '\\assets', 100);

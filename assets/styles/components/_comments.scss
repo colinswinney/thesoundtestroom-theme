@@ -17,3 +17,85 @@
   @extend .btn;
   @extend .btn-primary;
 }
+
+
+
+
+////// COMMENTS SECTIONS /////////
+.comments-ad-wrap {
+	padding-bottom:60px;
+}
+.comments {
+	margin:0 0 60px 0;
+	padding:20px;
+	background:$white-op5;
+
+	p {
+		margin:0 0 20px 0;
+	}
+
+	ol {
+		
+		@include phone {
+			padding-left:5px;
+		}
+		@include tablet {
+			padding-left:10px;
+		}
+
+		li {
+			padding:30px 0;
+			border-bottom:$light-border;
+
+			.children {
+				
+
+				li {
+					padding:10px;
+					margin:20px 0;
+					border-bottom:$light-border;
+					border-top: $light-border;
+					background: rgba(255,255,255,0.03);
+
+					@include phone {
+						padding-left:3px;
+					}
+					@include tablet {
+						padding-left:5px;
+					}
+				}
+			}
+		}
+	}
+
+	form {
+    	max-width: 500px;
+	}
+
+	
+}
+.comment-metadata {
+	font-style:italic;
+	font-weight:400;
+	font-family:$raleway;
+
+	.says {
+		font-style:italic;
+		font-weight:100;
+		font-family:$raleway;
+	}
+}
+.comment-edit-link {
+	display:block;
+	opacity:0.6;
+ 	
+ 	&:before {
+ 		margin:0 10px 0 0;
+		content: "\f0c4";
+		font-family: FontAwesome;
+		font-weight: normal;
+		font-style: normal;
+		display: inline-block;
+		text-decoration: inherit;
+	}
+}

@@ -1,0 +1,160 @@
+////// SINGLE BLOG POST //////
+.single article header {
+	margin:40px 0 20px 0;
+
+	&:after {
+	    content:'';
+	    width:auto;
+	    width:25%;
+	    height:1px;
+	    border-bottom:$light-border;
+	    display:block;
+	    position:absolute;
+	    margin:auto;
+	}
+}
+.entry-content {
+	margin:40px 0 20px 0;
+
+	p {
+		margin:0 0 60px 0;
+	}
+}
+.byline.author.vcard, time.updated {
+	font-weight:100;
+	font-style:italic;
+	font-family:$raleway;
+
+	a {
+		font-weight: 700;
+	}
+}
+
+
+// .page-nav = single post page navigation 
+.page-nav {
+    clear: both;
+    color: $mid-grey;
+
+    span {
+		color: $white;
+    }
+
+    a {
+		background-color:$white-op5;
+		border-bottom:$light-border;
+		height:40px;
+		color: $white;
+		margin: 0 3px;
+		font-weight: 700;
+		line-height: 1.2em;
+		text-decoration: none;
+		padding: 10px 12px;
+
+		&:hover {
+			background: $brand-hover;
+			color: $white;
+			border-bottom:1px solid $brand-hover;
+		}
+	}
+}
+
+
+
+//// APP ENTRY SINGLES AND CONTENT ////
+.app-entry-wrapper {
+	margin: auto auto 60px auto;
+
+	.supported-list {
+	    padding-left:20px;
+
+	    h5 {
+	    	margin:0;
+	    	padding:0;
+	    }
+	}
+}
+.app-entry-divider {
+	margin-bottom:30px;
+}
+.app-desc-column {
+
+	@include phone {
+		padding:0 15px 0 0;
+	}
+
+}
+.app-single-description {
+	font-size:0.8em;
+	line-height:1.4;
+	background:rgba(255,255,255,0.05);
+	padding:10px;
+	max-height:700px;
+	overflow-y:scroll;
+	border:$light-border;
+
+	@include phone {
+		font-size:0.7em;
+		line-height:1.4;
+	}
+}
+.app-content-info-wrapper {
+	float:left;
+
+	@include tablet {
+		float:none;
+	}
+	@include phone {
+		float:none;
+	}
+
+	img {
+
+		@include phone {
+			max-width: 300px;
+		}
+		@include exSmall {
+			max-width: 200px;
+		}
+	}
+
+	.faded {
+		opacity: 0.8;
+		font-size: 0.8em;
+	}
+}
+.screenshot-container h4 {
+	text-align:center;
+}
+.app-screen-carousel {
+    max-width:600px;
+    display:block;
+    margin:auto auto 60px auto;
+
+    .carousel-indicators {
+		bottom:-40px;
+
+		li {
+			border-radius:0;
+		}
+	}
+
+	.glyphicon.glyphicon-chevron-left {
+	    margin-left: -30px;
+	}
+	.glyphicon.glyphicon-chevron-right {
+	    margin-right: -30px;
+	}
+}
+.app-screen-carousel img {
+    display:block;
+    margin:auto;
+}
+.itunes-badge, .itunes-badge img {
+	margin:20px auto;
+}
+.itunes-badge.second-badge, .itunes-badge.second-badge img {
+	display:block;
+	margin:20px auto;
+	width:auto;
+}

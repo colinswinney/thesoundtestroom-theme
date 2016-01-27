@@ -13,7 +13,8 @@ function title() {
       return __('Latest Posts', 'sage');
     }
   } elseif (is_archive()) {
-    return get_the_archive_title();
+    $archiveTitle = get_the_archive_title();
+    echo str_replace("Archives:","", $archiveTitle);
   } elseif (is_search()) {
     return sprintf(__('Search Results for %s', 'sage'), get_search_query());
   } elseif (is_404()) {

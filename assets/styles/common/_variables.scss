@@ -1,3 +1,9 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,700,300);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700,300,400italic,300italic,700italic);
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+@import url(https://fonts.googleapis.com/css?family=Russo+One);
+@import url(https://fonts.googleapis.com/css?family=Francois+One);
+
 // Glyphicons font path
 $icon-font-path:        "../fonts/";
 
@@ -6,4 +12,69 @@ $main-sm-columns:       12;
 $sidebar-sm-columns:    4;
 
 // Colors
-$brand-primary:         #27ae60;
+$brand-primary:         #0C9DF7;
+$brand-hover:           #066fb1;
+$white:                 #FAFAFA;
+$white-op5:             rgba(255,255,255,0.05);
+$back-blue:             #0E1926;
+$dark-blue-overlay:     rgba(8, 15, 23, 0.9);
+$light-border:          1px solid rgba(255,255,255,0.2);
+$mid-grey:              #999999;
+
+$red-op6:               rgba(124, 0, 2, 0.6);
+$red:                   rgba(124, 0, 2, 1);
+$green-op6:             rgba(35,137,34,0.6);
+$green:                 rgba(35,137,34,1);
+$blue-op6:              rgba(6, 111, 177, 0.6);
+$blue:                  rgba(6, 111, 177, 1);
+$black-op4:             rgba(0,0,0,0.4);
+$dark-grey:             #111111;
+
+
+
+
+$raleway:               'Raleway', sans-serif;
+$openSans:				      'Open Sans', sans-serif;
+$montserrat:			      'Montserrat', sans-serif;
+
+$extra-small-width: 500px;
+$small-width: 768px;
+$medium-width: 992px;
+$large-width: 1200px;
+
+
+@mixin exSmall {
+  @media (max-width: #{$extra-small-width - 1px}) {
+    @content;
+  }
+}
+@mixin phone {
+  @media (max-width: #{$small-width - 1px}) {
+    @content;
+  }
+}
+@mixin tablet {
+  @media (min-width: #{$small-width}) and (max-width: #{$medium-width - 1px}) {
+    @content;
+  }
+}
+@mixin desktop {
+  @media (min-width: #{$medium-width}) and (max-width: #{$large-width - 1px}) {
+    @content;
+  }
+}
+@mixin large {
+  @media (min-width: #{$large-width}) {
+    @content;
+  }
+}
+@mixin tabletMin {
+  @media (min-width: #{$small-width}) {
+    @content
+  }
+}
+@mixin desktopMin {
+  @media (min-width: #{$medium-width}) {
+    @content
+  }
+}

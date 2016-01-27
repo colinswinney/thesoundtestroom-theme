@@ -1,0 +1,255 @@
+///// GENERIC PAGE /////
+.page-header {
+	padding:0;
+	border-bottom:none;
+
+	&:after {
+	    content:'';
+	    width:auto;
+	    width:25%;
+	    height:1px;
+	    border-bottom:$light-border;
+	    display:block;
+	    position:absolute;
+	    margin:auto;
+
+	    @include phone {
+	    	width:50%;
+	    }
+	    @include tablet {
+	    	width:50%;
+	    }
+	}
+}
+
+
+
+
+
+
+
+
+
+/// CONTACT PAGE ///
+.contact-support-image-row {
+	padding:60px 0 0 0;
+	font-size:0.8em;
+	
+	.image-link {
+		max-width:150px;
+		max-height:150px;
+		display:block;
+		margin:auto;
+	}
+	img {
+		max-width:150px;
+		max-height:150px;
+		display:block;
+		margin:auto;
+	}
+
+	p, .contact-content {
+		background:$white-op5;
+		border:$light-border;
+		padding:15px;
+
+		strong {
+			width:100%;
+			display: inline-block;
+			font-size:1.5em;
+		}
+		@include phone {
+			margin:30px auto 90px auto;
+		}
+		@include tablet {
+			margin:30px auto 90px auto;
+		}
+	}
+
+	p {
+		margin:30px 0;
+		text-align: center;
+	}
+
+	.contact-content {
+		margin:0;
+
+		ul {
+			margin: 0;
+			padding:0;
+		}
+
+		li {
+			list-style-type: none;
+			font-weight: 700;
+
+			a {
+				font-weight: 700;
+			}
+		}
+
+		a strong {
+			text-align: center;
+		}
+
+		span {
+			opacity:0.8;
+			font-style: italic;
+			font-weight: 100;
+		}
+	}
+
+	.tstr-support-block {
+
+		.image-link {
+			max-width:180px;
+			max-height:180px;
+		}
+		img {
+			max-height: 180px;
+			max-width: 180px;
+
+			@include phone {
+				margin:-30px 0 0 0;
+			}
+			@include tablet {
+				margin:-30px 0 0 0;
+			}
+		}
+		p {
+			margin:0;
+		}
+	}
+
+}
+.page-template-template-contact-page {
+	 .contact-support-image-row {
+	 	p {
+	 		margin:0;
+	 	}
+
+	 	.col-md-6 {
+	 		margin-bottom:30px;
+	 	}
+	 }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ARCHIVE PAGE
+.archive-half {
+	padding-left:0;
+}
+
+
+// APP ARCHIVE //
+.app-archive-term-wrapper {
+	margin:0 0 75px 0;
+	padding-left:0;
+
+	&:after {
+	    content:'';
+	    width:auto;
+	    width:50%;
+	    height:1px;
+	    border-bottom:$light-border;
+	    display:block;
+	    position:absolute;
+	    bottom:-45px;
+	    margin:auto;
+
+	}
+
+	ul {
+	 	list-style-type: none;
+	 	padding:0;
+
+	 	li {
+			clear:both;
+			padding:15px 0 15px 0;
+			min-height: 90px;
+
+			&:first-child {
+				padding:1px 0 15px 0;
+				min-height: 76px;
+			}
+			&:last-child {
+				padding:15px 0 0 0;
+				min-height: 0;
+			}
+
+	 		a {
+
+	 			img {
+	 				float: left;
+	 				margin: 0 10px 0 0;
+	 				max-height: 60px;
+	 				max-width: 60px;
+	 			}
+	 		}
+	 	}
+	 }
+
+	.get-info-btn {
+		margin:0 10px 0 0;
+	}
+}
+.term-heading {
+	margin: 0 0 15px 0;
+}
+// for taxonomy pages
+.app-archive-tax-image {
+	float:left;
+	margin:0 10px 0 0;
+	max-height: 60px;
+	max-width: 60px;
+}
+
+
+// downloads page 
+.page-template-template-downloads-page {
+
+	.downloads-section {
+		margin:0 0 60px 0;
+
+		h3 {
+
+			&:after {
+			    content:'';
+			    padding:0 0 10px 0;
+			    width:auto;
+			    width:50%;
+			    height:1px;
+			    border-bottom:$light-border;
+			    display:block;
+			}
+		}
+
+		.col-sm-4 {
+			margin:15px 0 30px 0;
+			text-align: center;
+
+			img {
+				height:150px;
+				width:150px;
+				display:block;
+				margin:auto;
+			}
+		}
+
+	}
+}

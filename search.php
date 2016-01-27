@@ -11,4 +11,18 @@
   <?php get_template_part('templates/content', 'search'); ?>
 <?php endwhile; ?>
 
-<?php the_posts_navigation(); ?>
+<?php if(function_exists('wp_pagenavi')) { // if PageNavi is activated ?>
+  
+<?php wp_pagenavi(); // Use PageNavi ?>
+  
+<?php } else { // Otherwise, use traditional Navigation ?>
+  
+<div class="nav-previous">
+<!-- next_post_link -->
+</div>
+  
+<div class="nav-next">
+<!-- previous_post_link -->
+</div>
+  
+<?php } // End if-else statement ?>

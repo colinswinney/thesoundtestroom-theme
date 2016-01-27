@@ -8,3 +8,36 @@
 .sidebar {
   @include make-sm-column($sidebar-sm-columns);
 }
+
+
+
+/////
+
+
+.main, .sidebar {
+	width:100% !important;
+	clear:both;
+}
+.main {
+	padding-bottom:40px;
+}
+
+@media (min-width: 1200px) {
+    .container{
+        max-width: 1120px;
+    }
+}
+.no-gutter {
+	margin:0;
+	padding:0;
+}
+
+.clear {
+	clear:both;
+}
+.left {
+	float:left;
+}
+.right {
+	float:right;
+}

@@ -74,4 +74,116 @@
   // Load Events
   $(document).ready(UTIL.loadEvents);
 
+  //////////////// THESOUNDTESTROOM /////////////////
+  //$(document).ready(function(){
+    //$(".modal-content").height( $("body").height() - 50 );
+  //});
+
+
+
+
+  $(document).ready(function() {
+
+   // Define the function
+   function addVideoSizeToggle() {
+
+     var $videoContainer = $('.mainPageVideoContainer');
+     // Make the button
+     var $videoSizeToggle = $('<button title="Video Size" type="button" class="btn btn-lg video-size">Video <i class="fa fa-plus-circle"></i></button>');
+
+     // Only continue if the page has a video
+     if ($videoContainer !== 'undefined') {
+
+       // Append the button. Change to ‘prepend’ if you want it above the container.
+       $videoContainer.append($videoSizeToggle);
+
+       $('.video-size').on('click', function() {
+
+           if ($videoContainer.css('float') === "right") {
+             $videoContainer.css({
+               'float': "none",
+               'width': "100%",
+               'max-width':'100%'
+             });
+             $('.video-size').html('Video <i class="fa fa-minus-circle"></i>');
+
+           } else {
+
+             $videoContainer.css({
+               'float': "right",
+               'width': "60%",
+               'max-width':'560px'
+             });
+             $('.video-size').html('Video <i class="fa fa-plus-circle"></i>');
+
+           }
+
+       });
+     } 
+
+   }
+   // Call the function
+   addVideoSizeToggle();
+
+
+
+
+
+
+
+  var scroll_pos = 0;
+  $(document).scroll(function() { 
+      scroll_pos = $(this).scrollTop();
+      if(scroll_pos > 99) {
+          $(".sticky-btn").css('background-color', 'rgba(124, 0, 2, 0.4)').css('border-color', 'rgba(255, 255, 255, 0.25)');
+          $(".sticky-btn:focus, .sticky-btn:active, .sticky-btn:hover ").css('border-color', 'rgba(250, 250, 250, 1)');
+          $(".quick-sales-btn").css('background-color', 'rgba(35,137,34,0.4)');
+          $(".quick-comic-btn").css('background-color', 'rgba(6, 111, 177, 0.4)');
+      } else {
+          $(".sticky-btn").css('background-color', 'rgba(124, 0, 2, 0.6)').css('border-color', 'rgba(250, 250, 250, 1)');
+
+          $(".quick-sales-btn").css('background-color', 'rgba(35,137,34,0.6)');
+          $(".quick-comic-btn").css('background-color', 'rgba(6, 111, 177, 0.6)');
+      }
+  });
+
+
+
+
+
+
+  // add clear to pagenavi 
+  $( '<div class="clear"></div>' ).insertAfter( '.wp-pagenavi .pages' );
+
+
+
+  if ($("body").find(".mainPageVideoContainer").length > 1 ) { 
+      $(".mainPageVideoContainer:first").css('display', 'none');
+  }
+  else if ($("body").find(".mainPageVideoContainer").length > 0 ) { 
+      
+  }
+
+
+
+  if ( $("#mainPageContainer") ) {
+      $("#mainPageContainer").find("#mainAppP").insertAfter(".mainPageVideoContainer");
+      $("#mainPageContainer").css('display', 'none');
+  }
+
+  if ( $(".entry-content .getApp") ) {
+    $(".entry-content .getApp").css('display', 'none');
+  }
+  else if ( $(".getApp.tstr-get-app") ) {
+    $(".getApp.tstr-get-app").css('dislpay', 'block');
+  }
+  
+
+  // move sharing buttons from post_content and to above comments
+  $('.sharedaddy.sd-sharing-enabled').remove().insertBefore('#comments');
+
+
+  }); //end document ready
+
 })(jQuery); // Fully reference jQuery after this point.
+

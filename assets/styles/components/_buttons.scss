@@ -1,0 +1,256 @@
+.btn {
+	transition:0.2s;
+	border-radius:0;
+	background:$brand-hover;
+	border:1px solid $white;
+	color:$white;
+	box-sizing:border-box;
+
+	&:hover {
+		background:$white;
+		color:$brand-hover;
+		border:1px solid $brand-hover;
+	}
+
+	&:active {
+		background:$white;
+		color:$brand-hover;
+		border:1px solid $brand-hover;
+	}
+
+	&:focus {
+		background:$white;
+		color:$brand-hover;
+		border:1px solid $brand-hover;
+	}
+}
+button:focus, button:active, button:hover, button:visited {
+	outline:0 !important;
+}
+
+
+.sticky-btn {
+	padding:0;
+	width:60px;
+	background-color:$red-op6 !important;
+	position: fixed;
+	z-index:1000;
+	right:10px;
+	font-size:24px;
+	top:10px;
+
+	&:hover, &:focus, &:active {
+		background-color:$red !important;
+		color:$white;
+		border:1px solid $white;
+	}
+
+	@include phone {
+		//position:absolute;
+		right:5px;
+	}
+	@include tablet {
+		right:10px;
+	}
+
+	.fa {
+		padding:0;
+		margin:0;
+	}
+
+}
+.quick-menu-btn {
+
+	@include phone {
+		top:5px;
+		left:0;
+	    right:-130px;
+	    margin-left:auto;
+	    margin-right:auto;
+	}
+}
+.quick-sales-btn {
+	max-width:auto;
+	right:80px;
+	background-color:$green-op6 !important;
+
+	@include phone {
+		top:5px;
+		left:0;
+	    right:0;
+	    margin-left:auto;
+	    margin-right:auto;
+	}
+
+	&:hover, &:focus, &:active {
+		background-color:$green !important;
+	}
+}
+.quick-comic-btn {
+	max-width:auto;
+	right:150px;
+	background-color:$blue-op6 !important;
+
+	@include phone {
+		top:5px;
+		left:-130px;
+	    right:0;
+	    margin-left:auto;
+	    margin-right:auto;
+	}
+	
+
+	&:hover, &:focus, &:active {
+		background-color:$blue !important;
+	}
+}
+
+
+
+
+.close {
+	margin-top:-30px !important;
+	font-size:28px;
+	color:$white;
+	opacity:0.5;
+	transition:0.2s;
+
+	&:hover {
+		opacity:0.8;
+		color:$white;
+	}
+}
+
+
+
+
+
+// SHARE BUTTONS
+// Jetpack share icons 
+.sharedaddy ul li a {
+	margin:0 24px 0 0 !important;
+}
+
+.sharedaddy h3.sd-title {
+	margin:0 !important;
+	display:block;
+	font-size:16px !important;
+
+	&:before {
+		width: 375px !important;
+		border-top: $light-border !important;
+		margin:0 0 20px 0 !important;
+
+		@include exSmall {
+			width:200px !important;
+		}
+	}
+}
+.sharedaddy.sd-sharing-enabled {
+    padding:0 0 5px 0;
+    margin:0 0 40px 0;
+    position:relative;
+}
+.sd-content {
+
+	ul {
+		margin: 0 !important;
+
+		&:after {
+		    content:'';
+		    position:absolute;
+		    left:0;
+		    bottom:0;
+		    width:375px !important;
+		    height:1px;
+		    border-bottom:$light-border;
+		    display:block;
+
+		    @include exSmall {
+				width:200px !important;
+			}
+		}
+
+		li a {
+			border-radius:0 !important;
+		}
+	}
+}
+.share-facebook.sd-button {
+	border:$light-border !important;
+	background-color: rgba(59,89,152, 0.8) !important; //#3b5998
+
+	&:hover {
+		border-color:white !important;
+		background-color: rgba(59,89,152, 1) !important; //#3b5998
+	}
+
+	span {
+		color:$white;
+	}
+
+	&:before {
+		color:$white;
+	}
+}
+.share-twitter.sd-button {
+	border:$light-border !important;
+	background-color: rgba(85,172,238, 0.8) !important; //#55acee
+
+	&:hover {
+		border-color:white !important;
+		background-color: rgba(85,172,238, 1) !important; //#3b5998
+	}
+
+	span {
+		color:$white;
+	}
+
+	&:before {
+		color:$white;
+	}
+}
+.share-google-plus-1.sd-button {
+	border:$light-border !important;
+	background-color: rgba(220,78,65, 0.8) !important; //#DC4E41
+
+	&:hover {
+		border-color:white !important;
+		background-color: rgba(220,78,65, 1) !important; //#3b5998
+	}
+
+	span {
+		color:$white;
+	}
+
+	&:before {
+		color:$white;
+	}
+}
+.share-email.sd-button {
+	border:$light-border !important;
+	background-color: rgba(255,255,255, 0.2) !important; //#3b5998
+
+	&:hover {
+		border-color:white !important;
+		background-color: rgba(255,255,255, 0.4) !important; //#3b5998
+	}
+
+	span {
+		color:$white !important;
+	}
+
+	&:before {
+		color:$white !important;
+	}
+}
+
+
+
+
+
+
+
+
+
+

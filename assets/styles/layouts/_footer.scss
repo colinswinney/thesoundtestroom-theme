@@ -1,0 +1,126 @@
+/// MAIN FOOTER //////
+.main-footer {
+	padding:20px 0;
+	background-color:$black-op4;
+	border-top:$light-border;
+
+	.footer-brand-wrapper {
+		margin:0 0 20px 0;
+		text-align:center;
+
+		img {
+			max-width: 75px;
+			vertical-align: bottom;
+		}
+
+		a {
+	    float:none;
+	    font-family: 'Russo One', sans-serif;
+	    font-size:42px;
+	    color:$white;
+	    font-weight:700;
+	    transition: 0.2s;
+	    text-shadow: -1px 1px 1px #111, -2px 2px 2px $brand-primary;
+		
+		
+		    @include phone {
+		    	font-size: 30px;
+		    }
+
+			@include exSmall {
+		    	font-size: 24px;
+		    }
+
+		    @include tablet {
+		    	font-size: 36px;
+		    }
+
+		    &:hover {
+		    	color:$brand-hover;
+		    	text-shadow: -1px 1px 1px #111, -2px 2px 3px $brand-hover;
+		    }
+		    &:active {
+		    	color:$brand-hover;
+		    	text-shadow: -1px 1px 1px #111, -2px 2px 3px $brand-hover;
+		    }
+		    &:focus {
+		    	color:$brand-hover;
+		    	text-shadow: -1px 1px 1px #111, -2px 2px 3px $brand-hover;
+		    }
+		}
+	}
+
+	.ad-wrapper {
+		margin-bottom:40px;
+	}
+
+	.footer-thirds-wrap {
+	    margin-top:40px;
+	}
+	
+	.footer-three-column {
+		padding-right:40px;
+	}
+}
+
+
+
+
+.elp-widget input {
+  display: block;
+  width: 100%;
+  max-width:300px;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 16px;
+  font-weight:700;
+  color: $dark-grey;
+  line-height: 1.428571429;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+.es_lablebox {
+  font-size:20px;
+  padding:0;
+}
+#es_txt_button {
+    width:auto;
+    transition:0.2s;
+	border-radius:0;
+	background:$brand-hover;
+	border:1px solid $white;
+	color:$white;
+	box-sizing:border-box;
+	font-size:14px;
+	font-weight:400;
+
+	&:hover {
+		background:$white;
+		color:$brand-hover;
+		border:1px solid $brand-hover;
+	}
+
+	&:active {
+		background:$white;
+		color:$brand-hover;
+		border:1px solid $brand-hover;
+	}
+
+	&:focus {
+		background:$white;
+		color:$brand-hover;
+		border:1px solid $brand-hover;
+	}
+}
+.comment-form input[type=text], .comment-form input[type=email], .comment-form input[type=url], .comment-form textarea, .form-control, .search-form .search-field {
+    color: $dark-grey;
+    font-size: 16px;
+  	font-weight:700;
+}

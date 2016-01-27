@@ -13,3 +13,13 @@
   @extend .btn;
   @extend .btn-default;
 }
+
+
+
+.search-submit {
+    margin-top:5px;
+
+    @include phone {
+    	margin-top: 2px;
+    }
+}
