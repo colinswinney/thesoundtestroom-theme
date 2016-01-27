@@ -541,6 +541,24 @@ function save_acf_field_data() {
 
   update_post_meta( $post_id, $field_name_date, $field_value_date );
 
+  $title_args = array(
+      'ID'           => $post_id,
+      'post_title'   => $appEntryTitle,
+      'post_name'    => $appEntryTitle
+  );
+
+  if ( ! wp_is_post_revision( $post_id ) ){
+    
+      // unhook this function so it doesn't loop infinitely
+      remove_action('save_post',  __NAMESPACE__ . '\\save_acf_field_data');
+    
+      // update the post, which calls save_post again
+      wp_update_post( $title_args );
+
+      // re-hook this function
+      add_action('save_post',  __NAMESPACE__ . '\\save_acf_field_data');
+    }
+
 }
 
 

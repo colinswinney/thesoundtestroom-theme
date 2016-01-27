@@ -48,6 +48,8 @@ if( have_rows('apps_on_sale_repeater', 11088) ):
 		$appPercentTotal = $appPercentTotal * 100;
 		$totalPercent = 100 - $appPercentTotal;
 
+		$standard_price = get_field('standard_price');
+
 		?>
 
 
@@ -76,10 +78,10 @@ if( have_rows('apps_on_sale_repeater', 11088) ):
 				        ?>
 						</span>
 						on sale from <?php 
-						if ($old_price == 0) {
+						if ($standard_price == 0) {
 				          echo 'FREE';
 				        } else {
-				          echo '$'.$old_price.'';
+				          echo '$'.$standard_price.'';
 				        } ?>
 					</h6>
 				</div>	  

@@ -26,6 +26,7 @@ $appPercent = $appSalePrice / $appSaleOldPrice;
 $appPercentTotal = round($appPercent, 2);
 $appPercentTotal = $appPercentTotal * 100;
 $totalPercent = 100 - $appPercentTotal;
+$standard_price = get_field('standard_price');
 ?>	
 <div class="row">
     <div class="col-xs-12 col-sm-4"><img alt="<?php echo $title;?>iOS Music App Sale" src="<?php echo $appSaleIcon;?>" width=100% /></div>

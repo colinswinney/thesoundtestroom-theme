@@ -78,6 +78,8 @@
             // override $post
             $post = $post_object;
             setup_postdata( $post );
+
+            $standard_price = get_field('standard_price');
             ?>
 
             <div class="col-md-6 home-article-wrap">
@@ -98,10 +100,10 @@
                   <h2 class="entry-title"><a href="<?php the_field('app_entry_url'); ?>"><?php the_title(); ?></a></h2>
                   <h6><i class="fa fa-spinner fa-pulse"></i>
                   on sale from <?php 
-                  if ($old_price == 0) {
+                  if ($standard_price == 0) {
                         echo 'FREE';
                       } else {
-                        echo '$'.$old_price.'';
+                        echo '$'.$standard_price.'';
                       } ?>
                   </h6>
                 </div>    

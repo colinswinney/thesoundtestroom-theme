@@ -24,6 +24,8 @@ if( have_rows('apps_on_sale_repeater') ):
 		$post = $post_object;
 		setup_postdata( $post ); 
 
+		$standard_price = get_field('standard_price');
+
 		?>
 
 
@@ -44,7 +46,7 @@ if( have_rows('apps_on_sale_repeater') ):
 				
 				<div class="home-article-title">
 					<h2 class="entry-title"><a href="<?php the_field('app_entry_url'); ?>"><?php the_title(); ?></a></h2>
-					<h6><i class="fa fa-spinner fa-pulse"></i> on sale from <?php echo '$'; echo $old_price; ?></h6>
+					<h6><i class="fa fa-spinner fa-pulse"></i> on sale from <?php echo '$'; echo $standard_price; ?></h6>
 				</div>	  
 			  	<div class="clear"></div>
 			</article>
