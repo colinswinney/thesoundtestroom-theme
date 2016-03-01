@@ -60,13 +60,13 @@ if( have_rows('apps_on_sale_repeater', 11088) ):
 					<div class="home-article-image">
 						<div class="home-post-meta">
 				
-							<a href="<?php the_field('app_entry_url'); ?>" class="featured-image-link-wrap"><img src="<?php echo $appSaleIcon;?>" alt="<?php the_title(); ?>" /></a>
+							<a href="<?php the_field('app_entry_url'); ?>" class="featured-image-link-wrap" target="_blank"><img src="<?php echo $appSaleIcon;?>" alt="<?php the_title(); ?>" /></a>
 							
 						</div>
 					</div>
 				
 				<div class="home-article-title">
-					<h2 class="entry-title"><a href="<?php the_field('app_entry_url'); ?>"><?php the_title(); ?></a></h2>
+					<h2 class="entry-title"><a href="<?php the_field('app_entry_url'); ?>" target="_blank"><?php the_title(); ?></a></h2>
 					<h6>
 						<span>
 						<?php

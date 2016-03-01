@@ -231,8 +231,9 @@ function app_entry_content() {
     $sign = '$';
     $appEntryPrice = "$sign$appEntryPrice";
   }
-
+  
   if( $appEntryTitle ) {
+
     ?>
     
     <!-- begin html content -->
@@ -541,7 +542,7 @@ function save_acf_field_data() {
 
   update_post_meta( $post_id, $field_name_date, $field_value_date );
 
-  $title_args = array(
+  /*$title_args = array(
       'ID'           => $post_id,
       'post_title'   => $appEntryTitle,
       'post_name'    => $appEntryTitle
@@ -558,7 +559,7 @@ function save_acf_field_data() {
       // re-hook this function
       add_action('save_post',  __NAMESPACE__ . '\\save_acf_field_data');
     }
-
+  */
 }
 
 

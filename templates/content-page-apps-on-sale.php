@@ -37,7 +37,7 @@ if( have_rows('apps_on_sale_repeater') ):
 						<div class="home-post-meta">
 				
 							
-								<a href="<?php the_field('app_entry_url'); ?>" class="featured-image-link-wrap"><img src="<?php the_field('app_entry_artwork_url_60'); ?>" alt="<?php the_title(); ?>" /></a>
+								<a href="<?php the_field('app_entry_url'); ?>" class="featured-image-link-wrap" target="_blank"><img src="<?php the_field('app_entry_artwork_url_60'); ?>" alt="<?php the_title(); ?>" /></a>
 								
 				
 				
@@ -45,7 +45,7 @@ if( have_rows('apps_on_sale_repeater') ):
 					</div>
 				
 				<div class="home-article-title">
-					<h2 class="entry-title"><a href="<?php the_field('app_entry_url'); ?>"><?php the_title(); ?></a></h2>
+					<h2 class="entry-title"><a href="<?php the_field('app_entry_url'); ?>" target="_blank"><?php the_title(); ?></a></h2>
 					<h6><i class="fa fa-spinner fa-pulse"></i> on sale from <?php echo '$'; echo $standard_price; ?></h6>
 				</div>	  
 			  	<div class="clear"></div>
