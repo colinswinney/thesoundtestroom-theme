@@ -3,7 +3,6 @@
 		
 			<div class="home-article-image">
 				<?php
-		        	$id = $object['id'];
 					$url = wp_get_attachment_url( get_post_thumbnail_id($id) );
 					$sizes = get_intermediate_image_sizes();
 

@@ -15,6 +15,32 @@ echo '<section class="get-app-section-wrapper">';
 		// override $post
 		$post = $post_object;
 		setup_postdata( $post ); 
+
+		// var_dump($post->post_type);
+
+		if ( $post->post_type == 'apps' ) {
+			
+			?>
+
+			<div class="getApp tstr-get-app">
+			    <a href="<?php the_field('track_view_url');?>" target="_blank">
+			      <img src="<?php the_field('artwork_60');?>" alt="<?php the_title(); ?>" />Get <span class="getAppSectionTitle"><?php the_title();?></span> <em> 
+			        <?php
+			        if ( get_field('price') == 0 ) {
+			          echo '(FREE)'; echo'</em>';
+			        } else {
+			          echo '($'; the_field('price'); echo')'; echo'</em>';
+			        }
+			        ?>
+			    </a>
+	  		</div>
+		  	<button title="Get More Info" type="button" class="btn btn-lg get-info-btn" data-toggle="modal" data-target="#<?php the_field('app_id'); ?>">Get More Info</button>
+		  	<div id="<?php the_field('app_id'); ?>" class="modal fade get-app-class" role="dialog">
+			    
+	    <?php
+		}
+		else if ( $post->post_type == 'app_entry' ){
+			
 		?>
 
 			<div class="getApp tstr-get-app">
@@ -31,7 +57,11 @@ echo '<section class="get-app-section-wrapper">';
 	  		</div>
 		  	<button title="Get More Info" type="button" class="btn btn-lg get-info-btn" data-toggle="modal" data-target="#<?php the_field('app_entry_id_number'); ?>">Get More Info</button>
 		  	<div id="<?php the_field('app_entry_id_number'); ?>" class="modal fade get-app-class" role="dialog">
-			    <div class="modal-dialog">
+			    
+	    <?php 
+		}
+		?>
+				<div class="modal-dialog">
 
 			      <!-- Modal content-->
 			      <div class="modal-content">
@@ -49,13 +79,7 @@ echo '<section class="get-app-section-wrapper">';
 			    </div>
 		  	</div>
 
-
-
-
-
-	    
-
-	    <?php 
+		<?php
 	    endif;
 	    wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly
 

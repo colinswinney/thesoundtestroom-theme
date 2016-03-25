@@ -40,9 +40,10 @@ add_filter('excerpt_more', __NAMESPACE__ . '\\excerpt_more');
 
 ////////////////////////////////////////////////////////////////////////////
 // ad php to text widget
+$html=ob_get_contents();
 function colin_php_execute($html){
 if(strpos($html,"<"."?php")!==false){ ob_start(); eval("?".">".$html);
-$html=ob_get_contents();
+
 ob_end_clean();
 }
 return $html;
@@ -90,6 +91,34 @@ function my_acf_admin_head() {
 add_action('acf/input/admin_head', __NAMESPACE__ . '\\my_acf_admin_head');
 
 
+
+// acf send email when app submitted
+
+
+function submit_an_app_email( $post_id ) {
+  // bail early if editing in admin
+  if( is_admin() ) {
+    
+    return;
+    
+  }
+  
+  // vars
+  $post = get_post( $post_id );
+  
+  // email data
+  $to = 'colinjswinney@gmail.com';
+  
+  $subject = 'NEW APP';
+  $body = 'A new app has been submitted';
+  
+  
+  // send email
+  wp_mail( $to, $subject, $body );
+  
+}
+
+add_action('acf/save_post', 'submit_an_app_email');
 
 
 
@@ -199,8 +228,16 @@ add_action( 'login_head',  __NAMESPACE__ . '\\namespace_login_style' );
 // APP ENTRY ITUNES CONTENT
 function app_entry_content() {
 
-  $appEntryID = get_field('app_entry_id_number');    
-  $appEntryInfo = 'http://itunes.apple.com/lookup?id='. $appEntryID .'';
+  $appEntryID = get_field('app_entry_id_number');
+  $appID = get_field('app_id');
+
+  if ($appID) {
+      $appEntryInfo = 'http://itunes.apple.com/lookup?id='. $appID .'';
+  }
+  if ($appEntryID) {
+      $appEntryInfo = 'http://itunes.apple.com/lookup?id='. $appEntryID .'';
+  }
+  
   $appEntryData = json_decode(file_get_contents($appEntryInfo), true);
   $appEntryTitle = $appEntryData['results'][0]['trackName'];
   $appEntryURL = $appEntryData['results'][0]['trackViewUrl'];
@@ -232,7 +269,7 @@ function app_entry_content() {
     $appEntryPrice = "$sign$appEntryPrice";
   }
   
-  if( $appEntryTitle ) {
+  if( $appEntryInfo ) {
 
     ?>
     
@@ -424,19 +461,7 @@ function app_entry_content() {
   }
 
   else {
-    echo 'something went wrong :(';
-      /*
-      <h4>In: '; echo the_field('audiobus_input'); echo '</h4>
-        <h4>FX: '; echo the_field('audiobus_effect'); echo '</h4>
-        <h4>Out: '; echo the_field('audiobus_output'); echo '</h4>
-        <h4>State Saving: '; echo the_field('audiobus_state_saving'); echo '</h4>
-        <h4>IAA Gen: '; echo the_field('iaa_instrument'); echo '</h4>
-        <h4>IAA FX: '; echo the_field('iaa_effect'); echo '</h4>
-        <h4>IAA Host: '; echo the_field('iaa_host'); echo '</h4>
-        <h4>VoiceOver: '; echo the_field('voiceover_support'); echo '</h4>
-        <h4>Dropbox: '; echo the_field('dropbox_support'); echo '</h4>
-        <h4>AudioShare: '; echo the_field('audioshare_support'); echo '</h4>';
-        */
+    echo 'something went wrong :('; 
   }
 }
 
@@ -444,7 +469,8 @@ function app_entry_content() {
 
 
 
-
+global $post;
+//$post_id = $post->ID;
 
 
 
@@ -452,13 +478,17 @@ function app_entry_content() {
 add_action( 'save_post', __NAMESPACE__ . '\\save_acf_field_data', 10, 3 );
  
 /* When the post is saved, saves our custom data */
-function save_acf_field_data() {
+function save_acf_field_data($post_id, $post) {
  
   //declare cpt name
-  global $post;
-  $post_id = $post->ID;
+  
   $post_slug = 'app_entry';
- 
+
+  if (isset($post->post_status) && 'auto-draft' == $post->post_status) {
+    return;
+  }
+
+
   //declare field name and field value
   $appEntryID = get_field('app_entry_id_number');    
   $appEntryInfo = 'http://itunes.apple.com/lookup?id='. $appEntryID .'';
@@ -573,11 +603,13 @@ function save_acf_field_data() {
 add_action( 'save_post', __NAMESPACE__ . '\\save_get_app_data', 10, 3 );
  
 /* When the post is saved, saves our custom data */
-function save_get_app_data() {
+function save_get_app_data($post, $post_id) {
+
+  if (isset($post->post_status) && 'auto-draft' == $post->post_status) {
+    return;
+  }
  
-  //declare cpt name
-  global $post;
-  $post_id = $post->ID;
+  
   $post_slug = 'post';
 
   if (get_field('app_store_link')) {
@@ -654,10 +686,35 @@ function save_get_app_data() {
 add_action('admin_menu', __NAMESPACE__ . '\\sale_admin_menu');
  
 /**
-* add external link to Tools area
+* add external link to Pages area
 */
 function sale_admin_menu() {
     global $submenu;
     $url = '/wp-admin/post.php?post=11088&action=edit';
     $submenu['edit.php?post_type=page'][] = array('Apps on Sale', 'manage_options', $url);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function pre_get_status_query( $query ) {
+    if ( is_admin() || ! $query->is_main_query() )
+        return;
+
+    if ( is_tax() ) {
+        $query->set( 'posts_per_page', -1 );
+        return;
+    }
+}
+add_action( 'pre_get_posts',  __NAMESPACE__ . '\\pre_get_status_query', 1 );

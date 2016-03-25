@@ -168,6 +168,6 @@ function assets() {
   wp_enqueue_script('sage/js', Assets\asset_path('scripts/main.js'), ['jquery'], null, true);
 
   wp_enqueue_style('tstr_options_css', get_template_directory_uri() . '/assets/styles/tstr-theme-options.php' );
-  wp_enqueue_style('invert_options', get_template_directory_uri() . '/assets/styles/invert-options.php' );
+  // wp_enqueue_style('invert_options', get_template_directory_uri() . '/assets/styles/invert-options.php' );
 }
 add_action('wp_enqueue_scripts', __NAMESPACE__ . '\\assets', 100);

@@ -1,3 +1,8 @@
+<?php 
+	if (is_page('Submit an App')) {
+		acf_form_head();
+	}
+?>
 <head>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
