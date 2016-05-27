@@ -3,12 +3,11 @@ header.banner {
 }
 .navbar {
 	margin-bottom:0;
-	padding:10px 0 10px 0;
+	padding:10px 0 10px 15px;
 	height:170px;
 	
 	@include phone {
 		height: 155px;
-		
 	}
 
 	@include exSmall {
@@ -25,17 +24,23 @@ header.banner {
 	background-color:$black-op4;
 	border:none;
 	border-bottom:$light-border;
+	background-image:url('/wp-content/uploads/2016/04/starry-header.jpg');
+	background-size:cover;
 }
 
 .navbar-header {
-	margin-top:70px;
+	margin-top:60px;
     float: left;
-    text-align: center;
+    text-align: left;
     width: 100%;
 
     @include phone {
-    	margin-top: 70px;
+    	text-align: center;
+    	margin-top: 60px;
         padding: 0 0 0 20px;
+    }
+    @include exSmall {
+    	margin-top: 65px;
     }
     @include tablet {
     	margin-top: 50px;
@@ -51,18 +56,18 @@ header.banner {
     color:$white;
     font-weight:700;
     transition: 0.2s;
-    text-shadow: -1px 1px 1px #111, -2px 2px 2px $brand-primary;
+    text-shadow: -1px 1px 1px #111, -2px 2px 2px $brand-hover;
 	
     @include phone {
-    	font-size: 36px;
+    	font-size: 42px;
     }
 
 	@include exSmall {
-    	font-size: 26px;
+    	font-size: 24px;
     }
 
     @include tablet {
-    	font-size: 48px;
+    	font-size: 56px;
     }
 
     &:hover {
@@ -104,7 +109,7 @@ header.banner {
 	line-height:1;
 	font-family: 'Francois One', sans-serif;
 	font-weight:100;
-	text-shadow: -1px 1px 1px #111;
+	text-shadow: -1px 1px 1px $brand-hover;
 
 	@include phone {
 		font-size:16px;
@@ -126,6 +131,7 @@ header.banner {
     margin-right:auto;
     z-index:-1;
     top:30px;
+    display: none;
 
     @include phone {
     	min-width: 100px;
@@ -138,6 +144,7 @@ header.banner {
 .head-logo {
 	margin-top:-25px;
 	width:80px;
+	display:none;
 
 	@include phone {
 		display:none;

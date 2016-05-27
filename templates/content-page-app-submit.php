@@ -6,13 +6,13 @@
     'post_id'   => 'new_post',
     'new_post'    => array(
       'post_type'   => 'apps',
-      'post_status'   => 'draft',
+      'post_status'   => 'publish',
     ),
     'submit_value'    => 'Submit',
     'updated_message' => __("Thank you!", 'acf'),
     'post_title' => false,
     'uploader' => 'basic',
-    'return' => home_url( '/apps' ),
+    'return' => home_url( '/thank-you' ),
   	));
 ?>
 <script type="text/javascript">

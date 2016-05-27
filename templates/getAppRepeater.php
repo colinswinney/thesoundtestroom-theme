@@ -34,8 +34,9 @@ echo '<section class="get-app-section-wrapper">';
 			        ?>
 			    </a>
 	  		</div>
-		  	<button title="Get More Info" type="button" class="btn btn-lg get-info-btn" data-toggle="modal" data-target="#<?php the_field('app_id'); ?>">Get More Info</button>
-		  	<div id="<?php the_field('app_id'); ?>" class="modal fade get-app-class" role="dialog">
+		  	<!-- <button title="Get More Info" type="button" class="btn btn-lg get-info-btn" data-toggle="modal" data-target="#<?php // the_field('app_id'); ?>">Get More Info</button>
+		  	<div id="<?php // the_field('app_id'); ?>" class="modal fade get-app-class" role="dialog"> -->
+		  	<a href="<?php the_permalink();?>"><button title="Get More Info" type="button" class="btn btn-lg get-info-btn">Get More Info</button></a>
 			    
 	    <?php
 		}
@@ -58,9 +59,7 @@ echo '<section class="get-app-section-wrapper">';
 		  	<button title="Get More Info" type="button" class="btn btn-lg get-info-btn" data-toggle="modal" data-target="#<?php the_field('app_entry_id_number'); ?>">Get More Info</button>
 		  	<div id="<?php the_field('app_entry_id_number'); ?>" class="modal fade get-app-class" role="dialog">
 			    
-	    <?php 
-		}
-		?>
+	    
 				<div class="modal-dialog">
 
 			      <!-- Modal content-->
@@ -78,6 +77,9 @@ echo '<section class="get-app-section-wrapper">';
 
 			    </div>
 		  	</div>
+	  	<?php 
+		}
+		?>
 
 		<?php
 	    endif;

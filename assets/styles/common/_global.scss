@@ -32,13 +32,13 @@ body {
 	color:$white;
 	font-size:24px;
 	line-height:165%;
-	font-family: $montserrat;
+	font-family: $openSans;
 	-ms-word-wrap: break-word;
   	word-wrap: break-word;
 }
 h1, h2, h3, h4, h5, h6 {
 	font-weight: 700;
-	font-family: $raleway;
+	font-family: $dosis;
 }
 h1 {
 	font-size:40px;
@@ -198,7 +198,7 @@ iframe, object {
 .home-article-wrap {
 	margin:40px 0;
 	text-align:left;
-	font-family:$raleway;
+	font-family:$dosis;
 	padding:0 10px 0 0;
 	position:relative;
 
@@ -245,12 +245,18 @@ iframe, object {
 		float:left;
 
 		@include phone {
-			
 			width: 100px;
+		}
 
-			img {
+		img {
+			width: 175px;
+			height: 175px;
+
+			@include phone {
+				height: 100px;
 				width: 100px;
 			}
+			
 		}
 
 		.home-post-meta {
@@ -452,7 +458,7 @@ iframe, object {
     background-color:$white-op5;
     border-bottom:$light-border;
     font-weight:100;
-    font-family: $raleway;
+    font-family: $dosis;
 
     strong {
     	font-weight: 100;
@@ -462,6 +468,14 @@ iframe, object {
     @include phone {
     	padding:10px;
     	line-height: 1.4;
+    }
+
+    @include tablet {
+    	padding:0 15px;
+    }
+
+    @include desktop {
+    	padding:0 30px;
     }
 
     @include large {
@@ -617,7 +631,7 @@ iframe, object {
 //////// WIDGETS ////////////////////
 .widget {
 	font-weight:400;
-	font-family:$raleway;
+	font-family:$dosis;
 	padding:0 0 40px ;
 
 	h3 {
@@ -715,19 +729,8 @@ iframe, object {
 	    float:left;
 	    max-height:100px;
 	    max-width:100px;
-	    width:100%;
-	    height:100%;
-
-	    @include phone {
-			float: left;
-	    }
-
-	    @include tablet {
-	    	max-height:60px;
-		    max-width:60px;
-		    width:100%;
-		    height:100%;
-	    }
+	    width:100px;
+	    height:100px;
 	}
 
     &:last-of-type {
@@ -855,6 +858,43 @@ iframe, object {
 
 
 
+input[type="email"] {
+	display: block;
+	width: 100%;
+	max-width:300px;
+	height: 34px;
+	padding: 6px 12px;
+	font-size: 16px;
+	font-weight:700;
+	color: $dark-grey;
+	line-height: 1.428571429;
+	background-color: #fff;
+	background-image: none;
+	border: 1px solid #ccc;
+	border-radius: 0;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	-webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+	-o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+	transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+input[type="submit"] {
+	background:blue;border:none
+}
+.btn,.comment-form input[type=submit],.search-form .search-submit,input[type="submit"] {
+	-webkit-transition:.2s;
+	-o-transition:.2s;
+	transition:.2s;
+	border-radius:0;
+	background:#066fb1;
+	border:1px solid #FAFAFA;
+	color:#111;
+	box-sizing:border-box;
+	padding:6px 12px;
+	font-size:16px;
+	line-height:1.428571429;
+	height:34px;
+}
 
 
 

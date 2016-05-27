@@ -1,9 +1,9 @@
 <footer class="content-info main-footer">
   <div class="container">
     <div class="col-xs-12 footer-brand-wrapper">
-      <img src="http://thesoundtestroom.com/wp-content/uploads/STR/whiteHeadSolo150x109.png" alt="thesoundtestroom logo" class="left">
-      <img src="http://thesoundtestroom.com/wp-content/uploads/STR/whiteHeadSolo150x109.png" alt="thesoundtestroom logo">
-      <img src="http://thesoundtestroom.com/wp-content/uploads/STR/whiteHeadSolo150x109.png" alt="thesoundtestroom logo" class="right">
+      <!--<img src="/wp-content/uploads/2016/05/whiteHeadSolo150x109.png" alt="thesoundtestroom logo" class="left">
+      <img src="/wp-content/uploads/2016/05/whiteHeadSolo150x109.png" alt="thesoundtestroom logo">
+      <img src="/wp-content/uploads/2016/05/whiteHeadSolo150x109.png" alt="thesoundtestroom logo" class="right">-->
     </div>
     <div class="ad-wrapper">
       <div class="col-xs-12 no-gutter"><?php if(function_exists('oiopub_banner_zone')) oiopub_banner_zone(3, 'center'); ?></div>

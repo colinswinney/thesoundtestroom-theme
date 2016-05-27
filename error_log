@@ -1,0 +1,11 @@
+[01-Mar-2016 07:59:57 America/Detroit] PHP Fatal error:  Call to undefined function locate_template() in /home/thesoundtestroom/public_html/wp-content/themes/thesoundtestroom/functions.php on line 23
+[01-Mar-2016 08:00:01 America/Detroit] PHP Fatal error:  Call to undefined function get_template_part() in /home/thesoundtestroom/public_html/wp-content/themes/thesoundtestroom/archive.php on line 1
+[01-Mar-2016 08:00:03 America/Detroit] PHP Fatal error:  Call to undefined function get_template_part() in /home/thesoundtestroom/public_html/wp-content/themes/thesoundtestroom/404.php on line 1
+[01-Mar-2016 14:57:01 America/Detroit] PHP Fatal error:  Call to undefined function locate_template() in /home/thesoundtestroom/public_html/wp-content/themes/thesoundtestroom/functions.php on line 23
+[01-Mar-2016 14:57:04 America/Detroit] PHP Fatal error:  Call to undefined function get_template_part() in /home/thesoundtestroom/public_html/wp-content/themes/thesoundtestroom/archive.php on line 1
+[01-Mar-2016 14:57:05 America/Detroit] PHP Fatal error:  Call to undefined function get_template_part() in /home/thesoundtestroom/public_html/wp-content/themes/thesoundtestroom/404.php on line 1
+[01-Mar-2016 17:10:06 America/Detroit] PHP Fatal error:  Call to undefined function locate_template() in /home/thesoundtestroom/public_html/wp-content/themes/thesoundtestroom/functions.php on line 23
+[01-Mar-2016 17:10:09 America/Detroit] PHP Fatal error:  Call to undefined function get_template_part() in /home/thesoundtestroom/public_html/wp-content/themes/thesoundtestroom/archive.php on line 1
+[01-Mar-2016 17:10:10 America/Detroit] PHP Fatal error:  Call to undefined function get_template_part() in /home/thesoundtestroom/public_html/wp-content/themes/thesoundtestroom/404.php on line 1
+[13-Mar-2016 05:24:20 America/Detroit] PHP Fatal error:  Call to undefined function locate_template() in /home/thesoundtestroom/public_html/wp-content/themes/thesoundtestroom/functions.php on line 23
+[13-Mar-2016 06:39:21 America/Detroit] PHP Fatal error:  Call to undefined function locate_template() in /home/thesoundtestroom/public_html/wp-content/themes/thesoundtestroom/functions.php on line 23

@@ -36,8 +36,10 @@ button:focus, button:active, button:hover, button:visited {
 	position: fixed;
 	z-index:1000;
 	right:10px;
-	font-size:24px;
+	font-size:11px !important;
 	top:10px;
+	font-family:$dosis;
+	font-weight:700;
 
 	&:hover, &:focus, &:active {
 		background-color:$red !important;

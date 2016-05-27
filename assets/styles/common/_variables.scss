@@ -1,8 +1,8 @@
-@import url(https://fonts.googleapis.com/css?family=Raleway:400,700,300);
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700,300,400italic,300italic,700italic);
-@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+// @import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
 @import url(https://fonts.googleapis.com/css?family=Russo+One);
 @import url(https://fonts.googleapis.com/css?family=Francois+One);
+@import url(https://fonts.googleapis.com/css?family=Dosis:400,700);
 
 // Glyphicons font path
 $icon-font-path:        "../fonts/";
@@ -21,11 +21,11 @@ $dark-blue-overlay:     rgba(8, 15, 23, 0.9);
 $light-border:          1px solid rgba(255,255,255,0.2);
 $mid-grey:              #999999;
 
-$red-op6:               rgba(124, 0, 2, 0.6);
+$red-op6:               rgba(124, 0, 2, 0.7);
 $red:                   rgba(124, 0, 2, 1);
-$green-op6:             rgba(35,137,34,0.6);
+$green-op6:             rgba(35,137,34,0.7);
 $green:                 rgba(35,137,34,1);
-$blue-op6:              rgba(6, 111, 177, 0.6);
+$blue-op6:              rgba(6, 111, 177, 0.7);
 $blue:                  rgba(6, 111, 177, 1);
 $black-op4:             rgba(0,0,0,0.4);
 $dark-grey:             #111111;
@@ -36,6 +36,7 @@ $dark-grey:             #111111;
 $raleway:               'Raleway', sans-serif;
 $openSans:				      'Open Sans', sans-serif;
 $montserrat:			      'Montserrat', sans-serif;
+$dosis:                 'Dosis', sans-serif;
 
 $extra-small-width: 500px;
 $small-width: 768px;

@@ -140,10 +140,10 @@
           $(".quick-sales-btn").css('background-color', 'rgba(35,137,34,0.4)');
           $(".quick-comic-btn").css('background-color', 'rgba(6, 111, 177, 0.4)');
       } else {
-          $(".sticky-btn").css('background-color', 'rgba(124, 0, 2, 0.6)').css('border-color', 'rgba(250, 250, 250, 1)');
+          $(".sticky-btn").css('background-color', 'rgba(124, 0, 2, 0.7)').css('border-color', 'rgba(250, 250, 250, 1)');
 
-          $(".quick-sales-btn").css('background-color', 'rgba(35,137,34,0.6)');
-          $(".quick-comic-btn").css('background-color', 'rgba(6, 111, 177, 0.6)');
+          $(".quick-sales-btn").css('background-color', 'rgba(35,137,34,0.7)');
+          $(".quick-comic-btn").css('background-color', 'rgba(6, 111, 177, 0.7)');
       }
   });
 
@@ -178,9 +178,13 @@
     $(".getApp.tstr-get-app").css('dislpay', 'block');
   }
   
+  // move related posts from post_content and to above comments
+  $('.jp-relatedposts').remove().insertBefore('#comments');
 
   // move sharing buttons from post_content and to above comments
   $('.sharedaddy.sd-sharing-enabled').remove().insertBefore('#comments');
+
+  
 
 
   }); //end document ready

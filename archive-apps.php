@@ -6,16 +6,119 @@
   </div>
   <?php get_search_form(); ?>
 <?php endif; ?>
+<div class="app-archive-info-wrap">
+	<?php 
+	$last_tracker_update = get_field('last_tracker_update', 'option');
+	$formatted_tracker_date = date('M j, Y', $last_tracker_update);?>
+	<h4>Last Updated: <?php echo $formatted_tracker_date;?></h4>
 
-<p>Welcome to thesoundtestroom app page</p>
+	
+	<h3>Welcome to thesoundtestroom app directory!</h3>
+	
+	<img src="/wp-content/uploads/2016/04/appStore-STR.png" alt="app store logo">
+	<p>In this section, you'll find a collection of apps currently being tracked by thesoundtestroom.  As apps are updated with price changes or new versions, you'll find them automatically added to the lists below.
+	<br>
+	<br>
+	We are not tagging, adding, or altering any info about these apps.  Genres, compatible devices, search terms, etc. are all taken directly from the App Store.
+	<br>
+	<br>
+	Search terms are found in the app's description.  Please note this might not reflect the functionality of the app, only that it's App Store description contains the keyword.
+	<br>
+	<br>
+	For example, an effect app might suggest you "use with your favorite DAW", while not actually having any DAW like capabilities.  Please read all descriptions carefully before purchase.  Buyer beware!
+	<br>
+	<br>
+	You can view by:</p>
+	<ul>
+		<li><a href="/all-apps">All Apps</a></li>
+		<li><a href="/status/price-drop">Price Drops</a></li>
+		<li><a href="/status/price-bump">Price Bumps</a></li>
+		<li><a href="/status/version-update">Version Updates</a></li>
+		<li><a href="/recently-released">Recently Released</a></li>
+		<li><a href="/free-apps">Free Apps</a></li>
+		<li><a href="/under-five-dollar-apps">Under Five Dollar Apps</a></li>
+		<li><a href="/five-to-twenty-dollar-apps">Five to Twenty Dollar Apps</a></li>
+		<li><a href="/over-twenty-dollar-apps">Over Twenty Dollar Apps</a></li>	
+	</ul>
 
-<div class="col-sm-12">
+	<p>or the following categories:</p>
 
-	<h2>Updates</h2>
+	<div class="col-sm-4 no-gutter">
+		<h2>Search Terms</h2>
+		<?php
+		$args = array( 'hide_empty=0' );
+		$terms = get_terms( 'search-terms', $args );
+
+		if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
+		    $count = count( $terms );
+		    $i = 0;
+		    echo '<ul>';
+		    foreach ( $terms as $term ) {
+		        $i++;
+		        echo '<li><a href="' . esc_url( get_term_link( $term ) ) . '" alt="' . esc_attr( sprintf( __( 'View all posts filed under %s', 'my_localization_domain' ), $term->name ) ) . '">' . $term->name . '</a> <em>('; echo $term->count; echo')</em></li>';
+		        
+		    }
+		    echo '</ul>';
+		}
+		?>
+	</div>
+	<div class="col-sm-4 genre-no-gutter">
+		<h2>Genres</h2>
+		<?php
+		$args = array( 'hide_empty=0' );
+		$terms = get_terms( 'genres', $args );
+
+		if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
+		    $count = count( $terms );
+		    $i = 0;
+		    echo '<ul>';
+		    foreach ( $terms as $term ) {
+		        $i++;
+		        echo '<li><a href="' . esc_url( get_term_link( $term ) ) . '" alt="' . esc_attr( sprintf( __( 'View all posts filed under %s', 'my_localization_domain' ), $term->name ) ) . '">' . $term->name . '</a> <em>('; echo $term->count; echo')</em></li>';
+		        
+		    }
+		    echo '</ul>';
+		}
+		?>
+	</div>
+	<div class="col-sm-4 no-gutter">
+		<h2>Devices</h2>
+		<?php
+		$args = array( 'hide_empty=0' );
+		$terms = get_terms( 'devices', $args );
+
+		if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
+		    $count = count( $terms );
+		    $i = 0;
+		   	echo '<ul>';
+		    foreach ( $terms as $term ) {
+		        $i++;
+		        echo '<li><a href="' . esc_url( get_term_link( $term ) ) . '" alt="' . esc_attr( sprintf( __( 'View all posts filed under %s', 'my_localization_domain' ), $term->name ) ) . '">' . $term->name . '</a> <em>('; echo $term->count; echo')</em></li>';
+		        
+		    }
+		    echo '</ul>';
+		}
+		?>
+	</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+<h4>Last Updated: <?php echo $formatted_tracker_date;?></h4>
+
+
+<div class="col-sm-12 no-gutter">
 
 	<?php
 
-	$args = array( 'hide_empty=0' );
+	$args = array( 'hide_empty'=>0, 'order'=>'ASC' );
 	$terms = get_terms( 'status', $args );
 
 	if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
@@ -29,13 +132,15 @@
 	    	$i++;
 
 	    	// if ($term->name == 'Price Bump') {
-	    	// 	echo '<li><a href="' . esc_url( get_term_link( $term ) ) . '" alt="' . esc_attr( sprintf( __( 'View all posts filed under %s', 'my_localization_domain' ), $term->name ) ) . '">' . $term->name . 's</a> <em>('; echo $term->count; echo')</em>';
+	    		
+	    	// 	// echo '<li><a href="' . esc_url( get_term_link( $term ) ) . '" alt="' . esc_attr( sprintf( __( 'View all posts filed under %s', 'my_localization_domain' ), $term->name ) ) . '">' . $term->name . 's</a> <em>('; echo $term->count; echo')</em>';
 	    	// }
 	    	// else {
 
-				echo '<li><h2>' . $term->name . 's</h2>';
+				echo '<li><h2>' . $term->name . 's</h2>
+';
 
-				$new_query = array ('taxonomy'=>'status','term'=>$term->slug, 'orderby'=>'rand', 'posts_per_page'=>'-1');
+				$new_query = array ('taxonomy'=>'status','term'=>$term->slug, 'orderby'=>'rand', 'posts_per_page'=>'6');
 				$myquery = new WP_Query ($new_query);
 				$article_count = $myquery->post_count;
 				$termLinks = get_term_link( $term, 'status' );
@@ -67,12 +172,32 @@
 								?>" />
 
 								<?php 
-									if ( has_term('Price Drop', 'status') ) {
-										echo '<div class="app-sticky green">';
+									if (has_term('Version Update', 'status')) {
+										if ( has_term('Price Drop', 'status') ) {
+											echo '<div class="app-sticky green version-update">';
+										}
+										else if ( has_term('Price Bump', 'status') ) {
+											echo '<div class="app-sticky red version-update">';
+										}
+										else {
+											echo '<div class="app-sticky version-update">';
+										}
 									}
 									else {
-										echo '<div class="app-sticky">';
+										if ( has_term('Price Drop', 'status') ) {
+											echo '<div class="app-sticky green">';
+										}
+										else if ( has_term('Price Bump', 'status') ) {
+											echo '<div class="app-sticky red">';
+										}
+										else {
+											echo '<div class="app-sticky">';
+										}
 									}
+
+
+
+									
 								?>
 								
 								<?php
@@ -110,361 +235,136 @@
 
 
 
-<div class="col-sm-4">
-	<h2>Search Terms</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="col-sm-12 no-gutter">
+
+
 	<?php
-	$args = array( 'hide_empty=0' );
+
+	$args = array( 'hide_empty'=>0 );
 	$terms = get_terms( 'search-terms', $args );
 
 	if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
+
 	    $count = count( $terms );
 	    $i = 0;
-	    echo '<ul>';
+
+	    echo '<ul class="app-archive-status-ul">';
 	    foreach ( $terms as $term ) {
-	        $i++;
-	        echo '<li><a href="' . esc_url( get_term_link( $term ) ) . '" alt="' . esc_attr( sprintf( __( 'View all posts filed under %s', 'my_localization_domain' ), $term->name ) ) . '">' . $term->name . '</a> <em>('; echo $term->count; echo')</em></li>';
-	        
-	    }
-	    echo '</ul>';
-	}
-	?>
-</div>
-<div class="col-sm-4">
-	<h2>Genres</h2>
-	<?php
-	$args = array( 'hide_empty=0' );
-	$terms = get_terms( 'genres', $args );
+	    	
+	    	$i++;
 
-	if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
-	    $count = count( $terms );
-	    $i = 0;
-	    echo '<ul>';
-	    foreach ( $terms as $term ) {
-	        $i++;
-	        echo '<li><a href="' . esc_url( get_term_link( $term ) ) . '" alt="' . esc_attr( sprintf( __( 'View all posts filed under %s', 'my_localization_domain' ), $term->name ) ) . '">' . $term->name . '</a> <em>('; echo $term->count; echo')</em></li>';
-	        
-	    }
-	    echo '</ul>';
-	}
-	?>
-</div>
-<div class="col-sm-4">
-	<h2>Devices</h2>
-	<?php
-	$args = array( 'hide_empty=0' );
-	$terms = get_terms( 'devices', $args );
+	    	// if ($term->name == 'Price Bump') {
+	    	// 	echo '<li><a href="' . esc_url( get_term_link( $term ) ) . '" alt="' . esc_attr( sprintf( __( 'View all posts filed under %s', 'my_localization_domain' ), $term->name ) ) . '">' . $term->name . 's</a> <em>('; echo $term->count; echo')</em>';
+	    	// }
+	    	// else {
 
-	if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
-	    $count = count( $terms );
-	    $i = 0;
-	   	echo '<ul>';
-	    foreach ( $terms as $term ) {
-	        $i++;
-	        echo '<li><a href="' . esc_url( get_term_link( $term ) ) . '" alt="' . esc_attr( sprintf( __( 'View all posts filed under %s', 'my_localization_domain' ), $term->name ) ) . '">' . $term->name . '</a> <em>('; echo $term->count; echo')</em></li>';
-	        
-	    }
-	    echo '</ul>';
-	}
-	?>
-</div>
+				echo '<li><h2>' . $term->name . '</h2>';
 
+				$new_query = array ('taxonomy'=>'search-terms','term'=>$term->slug, 'orderby'=>'rand', 'posts_per_page'=>'6');
+				$myquery = new WP_Query ($new_query);
+				$article_count = $myquery->post_count;
+				$termLinks = get_term_link( $term, 'search-terms' );
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div style="height:2000px;"></div>
-
-
-
-
-<h2>Status</h2>
-<?php
-$args = array( 'hide_empty=0' );
- 
-$terms = get_terms( 'status', $args );
-if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
-    $count = count( $terms );
-    $i = 0;
-    $term_list = '<p class="status-archive">';
-    foreach ( $terms as $term ) {
-        $i++;
-        $term_list .= '<a href="' . esc_url( get_term_link( $term ) ) . '" alt="' . esc_attr( sprintf( __( 'View all post filed under %s', 'my_localization_domain' ), $term->name ) ) . '">' . $term->name . '</a>';
-        if ( $count != $i ) {
-            $term_list .= ' &middot; ';
-        }
-        else {
-            $term_list .= '</p>';
-        }
-    }
-    echo $term_list;
-}
-?>
-
-
-<h2>Genres</h2>
-<?php
-$args = array( 'hide_empty=0' );
- 
-$terms = get_terms( 'genres', $args );
-if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
-
-
-
-
-
-
-
-
-
-
-    $count = count( $terms );
-    $i = 0;
-    $term_list = '<p class="status-archive">';
-    foreach ( $terms as $term ) {
-        $i++;
-        $term_list .= '<a href="' . esc_url( get_term_link( $term ) ) . '" alt="' . esc_attr( sprintf( __( 'View all post filed under %s', 'my_localization_domain' ), $term->name ) ) . '">' . $term->name . '</a>';
-        if ( $count != $i ) {
-            $term_list .= ' &middot; ';
-        }
-        else {
-            $term_list .= '</p>';
-        }
-    }
-    echo $term_list;
-}
-?>
-
-
-<h2>Compatible Devices</h2>
-<?php
-$args = array( 'hide_empty=0' );
- 
-$terms = get_terms( 'devices', $args );
-if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
-    $count = count( $terms );
-    $i = 0;
-    $term_list = '<p class="status-archive">';
-    foreach ( $terms as $term ) {
-        $i++;
-        $term_list .= '<a href="' . esc_url( get_term_link( $term ) ) . '" alt="' . esc_attr( sprintf( __( 'View all post filed under %s', 'my_localization_domain' ), $term->name ) ) . '">' . $term->name . '</a>';
-        if ( $count != $i ) {
-            $term_list .= ' &middot; ';
-        }
-        else {
-            $term_list .= '</p>';
-        }
-    }
-    echo $term_list;
-}
-?>
-
-
-
-<h2>Search Terms</h2>
-<h6>This is a search of the app store description and does not necessarily reflect the apps capabilities.  For example, an effect app might say "use with your favorite DAW" while not actually having any DAW-like functionality.  Please read descriptions carefully before purchase.</h6>
-<?php
-$args = array( 'hide_empty=0' );
- 
-$terms = get_terms( 'search-terms', $args );
-if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
-    $count = count( $terms );
-    $i = 0;
-    $term_list = '<p class="status-archive">';
-    foreach ( $terms as $term ) {
-        $i++;
-        $term_list .= '<a href="' . esc_url( get_term_link( $term ) ) . '" alt="' . esc_attr( sprintf( __( 'View all post filed under %s', 'my_localization_domain' ), $term->name ) ) . '">' . $term->name . '</a>';
-        if ( $count != $i ) {
-            $term_list .= ' &middot; ';
-        }
-        else {
-            $term_list .= '</p>';
-        }
-    }
-    echo $term_list;
-}
-?>
-
-
-
-
-
-
-
-
-
-
-	<h2>Search by Status</h2>
-	<h5>Price changes are for last 30 days, Version Update is for 15 days</h5>
-<?php
-
-	$terms = get_terms('status');
-	$counter = 0;
-
-    foreach ($terms as $term) {
-    	?>
-    	<div class='col-md-12 app-archive-term-wrapper'>
-	    	<h3 class="term-heading" id="<?php echo $term->slug; ?>">
-	      		<?php echo $term->name; ?>
-	      	</h3>
-	      	<?php 
-		      $new_query = array ('taxonomy'=>'status','term'=>$term->slug, 'orderby'=>'rand');
-		      $myquery = new WP_Query ($new_query);
-		      $article_count = $myquery->post_count;
-		      $termLinks = get_term_link( $term, 'status' );
-
-		      if ($article_count) {
-		      	?>
-		      	<ul>
-		      		<?php
-		         	while ($myquery->have_posts()) : $myquery->the_post();
-
-			        $url = wp_get_attachment_url( get_post_thumbnail_id($id) );
-					$sizes = get_intermediate_image_sizes();
-
-					$images = array();
-					foreach ( $sizes as $size ) {
-					  $images[] = wp_get_attachment_image_src( get_post_thumbnail_id($id), $size );
-					}
-			        
-					?>
-					<li><a href="<?php the_permalink(); ?>"><img src="<?php
-						if ($images[0][0] == false ) {
-							echo '/wp-content/uploads/STR/genericPostPhoto.png';
-						}
-						else {
-							echo $images[0][0];
-						}
-						?>" /><?php //echo $post->post_title; ?></a></li>
-					 
+				if ($article_count) {
+					?>	
+					<ul>
 					<?php
-			        endwhile;
-			        ?>
-		      	</ul>
-		      	<a href="<?php echo $termLinks; ?>" title="See More" class="btn btn-lg get-info-btn">See More</a> <em>in "<?php echo $term->name; echo ' ('; echo $term->count; echo ')';?>"</em>
-		      	<?php
-		       }
-			?>
-			
-			
-      	</div>
-		<?php
+					while ($myquery->have_posts()) : $myquery->the_post();
 
-		$counter++;
-		if ($counter % 3 === 0) { 
-			?>
-			<div class="clear"></div>
-			<?php 
-		}
-		/*
-		if ($counter == 4 ) { 
-			?>
-			<div class="ad-wrapper">
-				<div class="col-xs-12 col-sm-6 no-gutter"><?php if(function_exists('oiopub_banner_zone')) oiopub_banner_zone(2, 'left'); ?></div>
-				<div class="col-xs-12 col-sm-6 no-gutter"><?php if(function_exists('oiopub_banner_zone')) oiopub_banner_zone(2, 'left'); ?></div>
-			</div>
-			<?php
-		}
-		*/
-	}
+						$url = wp_get_attachment_url( get_post_thumbnail_id($id) );
+						$sizes = get_intermediate_image_sizes();
+						$images = array();
+						foreach ( $sizes as $size ) {
+							$images[] = wp_get_attachment_image_src( get_post_thumbnail_id($id), $size );
+						}
 
-	// Restore original Post Data
-	wp_reset_postdata();	
-?>
 
-<?php
+						?>
+						<li>
+							<a href="<?php the_permalink(); ?>">
+								<img src="<?php
+								if ($images[0][0] == false ) {
+									echo '/wp-content/uploads/STR/genericPostPhoto.png';
+								}
+								else {
+									echo $images[0][0];
+								}
+								?>" />
 
-	$terms = get_terms('search-terms');
-	$counter = 0;
+								<?php 
+									if ( has_term('Price Drop', 'status') ) {
+										echo '<div class="app-sticky green">';
+									}
+									else if ( has_term('Price Bump', 'status') ) {
+										echo '<div class="app-sticky red">';
+									}
+									else {
+										echo '<div class="app-sticky">';
+									}
+								?>
+								
+								<?php
+									$price = get_field('price');
+									if ( $price == '0' ) {
+										echo 'FREE';
+									}
+									else {
+										echo '$';
+										echo $price;
+									}
+								?>
+								</div>
+								<?php the_title(); ?>
+							</a>
+						</li>
 
-    foreach ($terms as $term) {
-    	?>
-    	<div class='col-md-4 app-archive-term-wrapper'>
-	    	<h2 class="term-heading" id="<?php echo $term->slug; ?>">
-	    		<a href="<?php echo $termLinks; ?>" title="See More">
-	      			<?php echo $term->name; ?>
-      			</a>
-      			<?php echo ' ('; echo $term->count; echo ')'; ?>
-	      	</h2>
-	      	
-	      	<?php 
-		      $new_query = array ('taxonomy'=>'search-terms','term'=>$term->slug, 'orderby'=>'rand', 'posts_per_page' => '12');
-		      $myquery = new WP_Query ($new_query);
-		      $article_count = $myquery->post_count;
-		      $termLinks = get_term_link( $term, 'search-terms' );
-
-		      if ($article_count) {
-		      	?>
-		      	<ul>
-		      		<?php
-		         	while ($myquery->have_posts()) : $myquery->the_post();
-
-			        $url = wp_get_attachment_url( get_post_thumbnail_id($id) );
-					$sizes = get_intermediate_image_sizes();
-
-					$images = array();
-					foreach ( $sizes as $size ) {
-					  $images[] = wp_get_attachment_image_src( get_post_thumbnail_id($id), $size );
-					}
-			        
+						<?php
+					endwhile;
 					?>
-					<li><a href="<?php the_permalink(); ?>"><img src="<?php
-						if ($images[0][0] == false ) {
-							echo '/wp-content/uploads/STR/genericPostPhoto.png';
-						}
-						else {
-							echo $images[0][0];
-						}
-						?>" /><?php //echo $post->post_title; ?></a></li>
-					 
+					<?php echo '<h4><a href="' . esc_url( get_term_link( $term ) ) . '" alt="' . esc_attr( sprintf( __( 'View all posts filed under %s', 'my_localization_domain' ), $term->name ) ) . '">View all ' . $term->name . '</a> <em>('; echo $term->count; echo')</em></h4>'; ?>
+					</li>
+					</ul>
 					<?php
-			        endwhile;
-			        ?>
-		      	</ul>
-		      	<?php
-		       }
-			?>
-			
-			
-      	</div>
-		<?php
+				}
+			// }
+		}
 
-		$counter++;
-		if ($counter % 3 === 0) { 
-			?>
-			<div class="clear"></div>
-			<?php 
-		}
-		/*
-		if ($counter == 4 ) { 
-			?>
-			<div class="ad-wrapper">
-				<div class="col-xs-12 col-sm-6 no-gutter"><?php if(function_exists('oiopub_banner_zone')) oiopub_banner_zone(2, 'left'); ?></div>
-				<div class="col-xs-12 col-sm-6 no-gutter"><?php if(function_exists('oiopub_banner_zone')) oiopub_banner_zone(2, 'left'); ?></div>
-			</div>
-			<?php
-		}
-		*/
+		echo '</ul>';
 	}
+	?>
+</div><!-- end of status terms section -->
 
-	// Restore original Post Data
-	wp_reset_postdata();	
-?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

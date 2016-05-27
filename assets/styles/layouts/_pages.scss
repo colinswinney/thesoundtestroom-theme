@@ -28,16 +28,16 @@
 // submit page 
 .page-template-template-app-submit {
 
-	.acf-tab-wrap.-top, .acf-field {
-	    display:none;
-	}
-	.acf-field-56d77bdbd2891 {
-	    display:block;
-	    max-width:300px;
-	}
-	.acf-fields > .acf-field {
-		padding-left: 0 !important;
-	}
+	// .acf-tab-wrap.-top, .acf-field {
+	//     display:none;
+	// }
+	// .acf-field-56d77bdbd2891 {
+	//     display:block;
+	//     max-width:300px;
+	// }
+	// .acf-fields > .acf-field {
+	// 	padding-left: 0 !important;
+	// }
 }
 
 
@@ -232,38 +232,64 @@
 
 
 
+.app-archive-info-wrap {
 
+	img {
+		float:right;
+		max-width:50%;
+
+		@include phone {
+			float: none;
+			margin:auto;
+			display: block;
+		}
+	}
+
+	ul, p {
+		font-size:0.8em;
+		line-height:1.4em;
+	}
+
+}
 .post-type-archive-apps ul {
 	padding:0;
 	list-style-type:none;
-	font-size:0.8em;
 
 	&.app-archive-status-ul li {
 		background:$white-op5;
 		padding:5px;
-		margin:10px 0;
+		margin: 20px 0 60px 0;
+
+		h2 {
+			text-decoration:underline;
+			margin-bottom: 20px;
+		}
 
 		ul li {
 			background:none;
 			display:inline-block;
-			width:110px;
+			width:150px;
 			text-align: center;
 			line-height: 1.2;
-			height:95px;
+			height:152px;
 			overflow:hidden;
 			border-right:$light-border;
 			border-left:$light-border;
 			padding:0 2px;
-			margin-bottom:10px;
+			margin:0 5px 20px;
 			position:relative;
+			font-size:0.8em;
+			vertical-align: top;
 			
 
 			a {
 				transition:0.2s;
 				color:$white;
+				font-weight: 700;
+				
 
 				&:hover {
-					color:$brand-hover;
+					color:$brand-primary;
 
 					img {
 						-webkit-filter: grayscale(100%); /* Chrome, Safari, Opera */
@@ -271,7 +297,9 @@
 					}
 					
 					.app-sticky {
-						background:$brand-hover;
+						background:$dark-grey;
+						box-shadow:none;
+						// text-shadow:none;
 					}
 
 
@@ -282,29 +310,98 @@
 
 			img {
 				display: block;
-				height:60px;
-				width:60px;
-				margin:auto;
+				height:100px;
+				width:100px;
+				margin:auto auto 5px auto;
 				transition:0.2s;
 				
 			}
 
 			.app-sticky {
 				position:absolute;
-				background:$red;
+				background:$brand-hover;
 				color:$white;
 				padding:2px;
 				// border-radius:5px;
-				top:40px;
-				right:0;
+				top:74px;
+				right:5px;
 				font-size:0.9em;
+				box-shadow:-1px 1px 1px $dark-grey;
+				text-shadow: -1px 1px 1px $dark-grey;
+				transition:0.2s;
 
 				&.green {
 					background:$green;
 				}
 
+				&.red {
+					background:$red;
+				}
+
 			}
 		}
+	}
+}
+
+.tax-search-terms .tax-page-ul,  .tax-devices .tax-page-ul, .tax-status .tax-page-ul, .tax-genres .tax-page-ul, .page-template-template-free-apps .tax-page-ul, .tax-page-ul {
+	padding:0;
+	list-style-type:none;
+
+	li {
+		background:none;
+		display:inline-block;
+		width:150px;
+		text-align: center;
+		line-height: 1.2;
+		height:152px;
+		overflow:hidden;
+		border-right:$light-border;
+		border-left:$light-border;
+		padding:0 2px;
+		margin:0 5px 20px;
+		position:relative;
+		font-size:0.8em;
+		vertical-align: top;
+			
+
+		a {
+			transition:0.2s;
+			color:$white;
+			font-weight: 700;
+			height:152px;
+			display: block;
+			overflow: hidden;
+
+			&:hover {
+				color:$brand-primary;
+
+				img {
+					-webkit-filter: grayscale(100%); /* Chrome, Safari, Opera */
+	    			filter: grayscale(100%);
+				}
+				
+				.app-sticky {
+					background:$dark-grey;
+					box-shadow:none;
+				}
+
+
+			}
+		}
+
+			
+
+		img {
+			display: block;
+			height:100px;
+			width:100px;
+			margin:auto auto 5px auto;
+			transition:0.2s;
+			
+		}
+
+		
+	
 	}
 }
 
@@ -314,7 +411,38 @@
 
 
 
+.app-sticky {
+	position:absolute;
+	background:$brand-hover;
+	color:$white;
+	padding:2px;
+	border:1px solid $white;
+	top:74px;
+	right:5px;
+	box-shadow:-1px 1px 1px $dark-grey;
+	text-shadow: -1px 1px 1px $dark-grey;
+	transition:0.2s;
 
+	&.green {
+		background:$green;
+	}
+
+	&.red {
+		background:$red;
+	}
+
+}
+
+.version-update {
+	&:before {
+		font-family: 'FontAwesome';
+		content: "\f069";
+		position:absolute;
+		top:-12px;
+		right:-6px;
+		color:$brand-primary;
+	}
+}
 
 
 

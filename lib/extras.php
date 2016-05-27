@@ -207,7 +207,7 @@ function namespace_login_headertitle( $title ) {
 add_filter( 'login_headertitle',  __NAMESPACE__ . '\\namespace_login_headertitle' );
 // Replaces the login header logo
 function namespace_login_style() {
-    echo '<style>.login h1 a { background-image: url( http://thesoundtestroom.com/wp-content/uploads/STR/whiteHeadSolo150x109.png ) !important; }</style>';
+    echo '<style>.login h1 a { background-image: url( http://thesoundtestroom.com/wp-content/uploads/2016/05/whiteHeadSolo150x109.png ) !important; }</style>';
 }
 add_action( 'login_head',  __NAMESPACE__ . '\\namespace_login_style' );
 
@@ -712,8 +712,31 @@ function pre_get_status_query( $query ) {
     if ( is_admin() || ! $query->is_main_query() )
         return;
 
-    if ( is_tax() ) {
-        $query->set( 'posts_per_page', -1 );
+    if ( is_tax( array('genres', 'search-terms', 'devices') ) ) {
+        $query->set( 'posts_per_page', '102' );
+        $query->set( 'orderby', 'title' );
+        $query->set( 'order', 'ASC' );
+        return;
+    }
+    else if ( is_tax( 'status', 'price-drop' ) ) {
+        $query->set( 'posts_per_page', '102' );
+        $query->set( 'orderby', 'meta_value_num' );
+        $query->set( 'meta_key', 'price_last_cron_update' );
+        $query->set( 'order', 'DESC' );
+        return;
+    }
+    else if ( is_tax( 'status', 'price-bump' ) ) {
+        $query->set( 'posts_per_page', '102' );
+        $query->set( 'orderby', 'meta_value_num' );
+        $query->set( 'meta_key', 'price_last_cron_update' );
+        $query->set( 'order', 'DESC' );
+        return;
+    }
+    else if ( is_tax( 'status', 'version-update' ) ) {
+        $query->set( 'posts_per_page', '102' );
+        $query->set( 'orderby', 'meta_value_num' );
+        $query->set( 'meta_key', 'version_last_cron_update' );
+        $query->set( 'order', 'DESC' );
         return;
     }
 }
